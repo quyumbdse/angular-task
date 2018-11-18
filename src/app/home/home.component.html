@@ -1,0 +1,38 @@
+
+<div class="container">
+    <h3>Proposals from App users:</h3>
+    
+    <div class="table-responsive" >
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                <th>User Name</th>
+                <th>Job Title</th>
+                <th>Description</th>
+                <th>Status</th>
+               
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let job of jobs" >
+                        <td>{{ job.User?.name}}</td>
+                        <td> {{job.title}}</td>
+                        <td> {{job.description}}</td>
+                        <td></td>
+                       
+                        <td class="text-right">
+                                <div class="btn-group flex-btn-group-container">
+                                   <button type="submit" class="btn btn-primary btn-sm">
+                                        <span class="d-none d-md-inline" >Accept</span>
+                                    </button>
+                               
+                                    <button type="submit" (click)="deleteJob(job.id)" class="btn btn-danger btn-sm">
+                                        <span class="d-none d-md-inline">Cancel</span>
+                                    </button>
+                                </div>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>                
+</div>
