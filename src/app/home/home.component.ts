@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 
 
 @Component({
-    templateUrl: 'home.component.html'
+    templateUrl: 'home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 
 export class HomeComponent implements OnInit {
@@ -25,21 +26,21 @@ export class HomeComponent implements OnInit {
         this.loadAllJobs();
     }
     
-        deleteJob(id: number) {
-               if (confirm("Are you sure you want to cancel " +  "?")) {
-                this.jobService.delete(id).subscribe(
-                    data => {
+    deleteJob(id: number) {
+        if (confirm("Are you sure you want to cancel " + "?")) {
+            this.jobService.delete(id).subscribe(
+                data => {
                       // refresh the list
-                      this.loadAllJobs();
+                    this.loadAllJobs();
                        return true;
-                     },
-                     error => {
-                      console.error("Error canceling job!");
+                       },
+                        error => {
+                         console.error("Error canceling job!");
                        return Observable.throw(error);
-                     }
-                  );
                 }
-              }
+            );
+        }
+    }
 
 
     private loadAllUsers() {
@@ -55,5 +56,9 @@ export class HomeComponent implements OnInit {
             this.jobs = data;
           //  console.log(data)
         });
+    }
+
+    acceptProposal(){
+        alert('proposal accepted')
     }
 }

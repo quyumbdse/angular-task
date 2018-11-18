@@ -1,8 +1,8 @@
 
 <div class="container">
-    <h3>Proposals from App users:</h3>
-    
-    <div class="table-responsive" >
+
+    <div class="table-responsive" id = margin>
+            <h3>Proposals from App users:</h3>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -15,14 +15,14 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let job of jobs" >
-                        <td>{{ job.User?.name}}</td>
+                        <td>{{job.User?.name}}</td>
                         <td> {{job.title}}</td>
                         <td> {{job.description}}</td>
                         <td></td>
                        
                         <td class="text-right">
                                 <div class="btn-group flex-btn-group-container">
-                                   <button type="submit" class="btn btn-primary btn-sm">
+                                   <button type="submit" (click)="acceptProposal(job.id)" class="btn btn-primary btn-sm">
                                         <span class="d-none d-md-inline" >Accept</span>
                                     </button>
                                
